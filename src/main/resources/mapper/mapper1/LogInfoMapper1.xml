@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caleb.demo.mapper.mapper1.LogInfoMapper1">
+
+  <insert id="insertBatchByOn" parameterType="java.util.List">
+    insert into log_info (id, type, message, create_time) values
+    <foreach collection="logInfos" item="item" index="index" separator=",">
+      (#{item.id}, #{item.type}, #{item.message},#{item.createTime})
+    </foreach>
+  </insert>
+
+  <insert id="insert" parameterType="com.caleb.demo.entity.LogInfo">
+    insert into log_info (id, type, message, create_time)
+    values (#{id}, #{type}, #{message}, #{createTime})
+  </insert>
+
+</mapper>

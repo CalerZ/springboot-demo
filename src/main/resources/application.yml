@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: local
+  jta:
+    log-dir: classpath:tx-logs
+    transaction-manager-id: txManager
